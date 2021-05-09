@@ -1,0 +1,33 @@
+import 'package:flutter/material.dart';
+
+class Listview extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("List view"),
+        ),
+        body: createListView());
+  }
+
+  Widget createListView() {
+    var listview = ListView(
+      children: <Widget>[
+        ListTile(
+          leading: Icon(Icons.phone),
+          title: Text("Mobile phone"),
+          subtitle: Text("This is mobile phone"),
+          trailing: Icon(Icons.message),
+          onTap: () {
+            print("this is my mobile number");
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.laptop_chromebook),
+          title: Text("New chromebook"),
+        ),
+      ],
+    );
+    return listview;
+  }
+}
