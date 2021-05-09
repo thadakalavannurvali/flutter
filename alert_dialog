@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+
+class Alertpage extends StatelessWidget {
+  get _scaffoldkey => null;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      key: _scaffoldkey,
+      appBar: AppBar(
+        title: Text("Login page"),
+      ),
+      body: ElevatedButton(
+        onPressed: () {
+          createAlertDialog(context);
+        },
+        child: Text("show alert dialog"),
+      ),
+    );
+  }
+
+  void createAlertDialog(BuildContext context) {
+    AlertDialog alertDialog = AlertDialog(
+      backgroundColor: Colors.green,
+      elevation: 10.0,
+      content: Text("you have registered sucessfull"),
+      actions: <Widget>[
+        GestureDetector(
+          child: Text("close"),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text("close"),
+        ),
+      ],
+    );
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alertDialog;
+        });
+  }
+}
