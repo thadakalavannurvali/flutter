@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+
+class Thirdpage extends StatelessWidget {
+  TextEditingController editingController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Login page"),
+          backgroundColor: Colors.purpleAccent,
+          leading: Icon(Icons.menu),
+        ),
+        body: Container(
+          alignment: Alignment.center,
+          margin: EdgeInsets.all(10),
+          child: Column(
+            children: <Widget>[
+              TextField(
+                controller: editingController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                    hintText: 'Enter email',
+                    border: OutlineInputBorder(),
+                    suffixIcon: Icon(Icons.mail)),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    print('' + editingController.text);
+                  },
+                  child: Text("Get data"))
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.red,
+          tooltip: 'Added favorites',
+          onPressed: () {
+            print('fab clicked');
+          },
+          child: Icon(Icons.home),
+        ));
+  }
+}
